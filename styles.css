@@ -1,0 +1,16 @@
+body {
+    background-color: aqua;
+}
+
+label{
+    display: block;
+}
+
+input {
+    text-align: end;
+}
+
+::placeholder {
+    position:absolute;
+    text-align: left
+}
