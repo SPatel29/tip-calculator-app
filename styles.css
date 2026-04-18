@@ -2,7 +2,7 @@ body {
     background-color: aqua;
 }
 
-label{
+label {
     display: block;
 }
 
@@ -11,6 +11,29 @@ input {
 }
 
 ::placeholder {
-    position:absolute;
+    position: absolute;
     text-align: left
+}
+
+.container {
+    .input-container {
+        position: relative;
+        display: inline-block;
+
+        input {
+            padding-left: 40px;
+            /* Adjust so typed text doesn't overlap the label */
+            height: 30px;
+        }
+
+        .fake-placeholder {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            pointer-events: none;
+            /* Allows clicks to pass through to the input */
+        }
+    }
 }
