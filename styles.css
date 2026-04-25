@@ -17,14 +17,24 @@ input {
 
 .input-container {
     position: relative;
+    background: hsl(0, 100%, 100%);
+    width: 50%;
+    border-radius: 0.5em;
+    margin: auto;
+    padding: 1em;
+    label{
+        margin: 0.2em
+    }
     input {
         padding: 0.5em 0.5em 0.5em 2em;
         background-color: hsl(189, 47%, 97%);
+        border-radius: 0.2em;
+        width: max-content;
     }
     .permanent-placeholder {
         position: absolute;
-        left: 0.5em;
-        bottom: 0.5em;
+        left: 1.5em;
+        bottom: 1.5em;
         margin-right: 0.9em;
         padding-right: 0.2em;
     }
