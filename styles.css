@@ -10,12 +10,12 @@ input {
     text-align: end;
 }
 
-::placeholder {
-    position: absolute;
-    text-align: left
+.main-container {
+    width: 50%;
+    margin: auto;
 }
 
-.input-container {
+.left-container {
     position: relative;
     background: hsl(0, 100%, 100%);
     width: 50%;
