@@ -56,8 +56,19 @@ input {
             word-spacing: 0.2em;
         }
 
-        input {
-            display: inline;
+        .tip-value {
+            border: 2px solid black;
+            display: inline-block;
+            padding: 20px;
+        }
+
+        input[type="radio"] {
+            opacity: 0;
+            width: 0;
+        }
+
+        .tip-value:has(input:checked) {
+            background-color: blue;
         }
 
     }
