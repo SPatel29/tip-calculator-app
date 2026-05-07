@@ -49,9 +49,6 @@ input {
     }
 
     .tip-container {
-        margin: 1em 0 0 0;
-        width: 100%;
-
         .tip-selection-label {
             word-spacing: 0.2em;
         }
@@ -59,16 +56,32 @@ input {
         .tip-value {
             border: 2px solid black;
             display: inline-block;
-            padding: 20px;
         }
 
         input[type="radio"] {
             opacity: 0;
             width: 0;
+            height: 0;
+            margin: unset;
+            padding: unset;
         }
 
         .tip-value:has(input:checked) {
             background-color: blue;
+        }
+
+        label{
+            width: 10%;
+            text-align: center;
+            padding: 0.5em;
+            border-radius: 0.5em;
+        }
+
+        input[type="text"] {
+            width: 10%;
+            padding: 0.5em;
+            border-radius: 0.5em;
+
         }
 
     }

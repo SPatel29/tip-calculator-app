@@ -31,28 +31,31 @@
         <input type="text" id="bill" name="bill">
         <span class="permanent-placeholder">$</span>
       </div>
+      <label class="tip-selection-label">Select Tip %</label>
       <div class="tip-container">
-        <label class="tip-selection-label">Select Tip %</label>
         <form>
-          <label class="tip-value" for="tip-percentage-5"> 5%
-            <input type="radio" id="tip-percentage-5" name="tip-percentage" value="5%" checked>
-          </label>
-          <label class="tip-value" for="tip-percentage-10"> 10%
-            <input type="radio" id="tip-percentage-10" name="tip-percentage" value="10%" checked>
-          </label>
-          <label class="tip-value" for="tip-percentage-15"> 15%
-            <input type="radio" id="tip-percentage-15" name="tip-percentage" value="15%" checked>
-          </label>
-          <label class="tip-value" for="tip-percentage-20"> 20%
-            <input type="radio" id="tip-percentage-20" name="tip-percentage" value="20%" checked>
-          </label>
-          <label class="tip-value" for="tip-percentage-25"> 25%
-            <input type="radio" id="tip-percentage-25" name="tip-percentage" value="25%" checked>
-          </label>
-          <label class="tip-value" for="tip-percentage-50"> 50%
-            <input type="radio" id="tip-percentage-50" name="tip-percentage" value="50%" checked>
-          </label>
-          <input type="text" id="custom-tip" name="tip-percentage" placeholder="Custom">
+          <div class="top-tip-container">
+            <label class="tip-value" for="tip-percentage-5">
+              <span>5%</span>
+              <input type="radio" id="tip-percentage-5" name="tip-percentage" value="5%" checked>
+            </label>
+            <label class="tip-value" for="tip-percentage-10"> 10%
+              <input type="radio" id="tip-percentage-10" name="tip-percentage" value="10%" checked>
+            </label>
+            <label class="tip-value" for="tip-percentage-15"> 15%
+              <input type="radio" id="tip-percentage-15" name="tip-percentage" value="15%" checked>
+            </label>
+          </div>
+          <div class="bottom-tip-container">
+            <label class="tip-value" for="tip-percentage-20"> 20%
+              <input type="radio" id="tip-percentage-20" name="tip-percentage" value="20%" checked>
+            </label>
+            <label class="tip-value" for="tip-percentage-50"> 50%
+              <input type="radio" id="tip-percentage-50" name="tip-percentage" value="50%" checked>
+            </label>
+            <input type="text" id="custom-tip" name="tip-percentage" placeholder="Custom">
+          </div>
+          
         </form>
       </div>
     </div>
