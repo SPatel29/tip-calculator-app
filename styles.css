@@ -61,6 +61,10 @@ input {
             background-color: blue;
         }
 
+        .tip-value {
+            display: flex;
+        }
+
         form {
             gap: 10px;
             display: grid;
@@ -69,11 +73,38 @@ input {
 
         form>* {
             text-align: center;
+            border: 2px solid black;
+            cursor: pointer;
+            padding: 0.2em 0.4em;
+            border-radius: 0.3em;
         }
 
         .tip-value {
-            border: 2px solid black;
-            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #custom-tip {
+            width: 100%;
+            background: transparent;
+            outline: none;
+            text-align: inherit;
+            box-sizing: border-box;
+            border: unset;
         }
     }
+
+    .num-of-people-label {
+        margin-left: unset;
+
+        input[type="text"] {
+            width: 100%;
+        }
+    }
+
+    .num-of-people-text {
+        margin-bottom: 0.3em;
+    }
+
 }
