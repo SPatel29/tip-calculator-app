@@ -62,15 +62,13 @@ input {
         }
 
         form {
-            display: flex;
             gap: 10px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
         }
+
         form>* {
-            flex: 1;
-            min-width: 0;
             text-align: center;
-            width: 100%;
-            box-sizing: border-box;
         }
 
         .tip-value {
