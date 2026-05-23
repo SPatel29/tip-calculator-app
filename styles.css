@@ -33,7 +33,7 @@ input {
             border-radius: 0.2em;
         }
 
-        .permanent-placeholder {
+        .dollar-sign-img {
             position: absolute;
             left: 0.5em;
             bottom: 0.5em;
@@ -91,22 +91,34 @@ input {
         input[type="text"]:focus {
             border: 2px solid #3498db;
             outline: none;
-            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
-            background-color: #f0f8ff;
 
         }
     }
 
-    .num-of-people-label {
-        margin-left: unset;
+    .num-of-people-container {
+        position: relative;
+        .num-of-people-label {
+            margin-left: unset;
 
-        input[type="text"] {
+            input[type="text"] {
             width: 100%;
+            padding: 0.5em 0.5em 0.5em 2em;
+            background-color: hsl(189, 47%, 97%);
+            border-radius: 0.2em;
+            }
         }
-    }
 
-    .num-of-people-text {
-        margin-bottom: 0.3em;
+        .num-of-people-text {
+            margin-bottom: 0.3em;
+        }
+
+        .person-img {
+            position: absolute;
+            left: 0.5em;
+            bottom: 0.5em;
+            margin-right: 0.9em;
+            padding-right: 0.2em;
+        }
     }
 
 }
