@@ -14,14 +14,14 @@ input {
     border-radius: 0.5em;
 }
 
-.right-container {
-    width: 50%;
-}
-
 .left-container {
     position: relative;
     width: 50%;
     margin: 1em;
+
+    input[type="text"] {
+        box-sizing: border-box;
+    }
 
     .input-container {
         position: relative;
@@ -97,14 +97,15 @@ input {
 
     .num-of-people-container {
         position: relative;
+
         .num-of-people-label {
             margin-left: unset;
 
             input[type="text"] {
-            width: 100%;
-            padding: 0.5em 0.5em 0.5em 2em;
-            background-color: hsl(189, 47%, 97%);
-            border-radius: 0.2em;
+                width: 100%;
+                padding: 0.5em 0.5em 0.5em 2em;
+                background-color: hsl(189, 47%, 97%);
+                border-radius: 0.2em;
             }
         }
 
@@ -120,5 +121,14 @@ input {
             padding-right: 0.2em;
         }
     }
+}
 
+.right-container {
+    width: 50%;
+
+    .stats-headers {
+        h4 {
+            margin: 2em 0 0 3em;
+        }
+    }
 }
