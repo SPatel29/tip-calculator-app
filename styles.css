@@ -123,12 +123,43 @@ input {
     }
 }
 
+/*
+
+    TODO: align items within right container to be center
+    of all text and button inputs
+
+*/
+
 .right-container {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    .tip-container {
+        display: flex;
+        align-items: center;
 
-    .stats-headers {
-        h4 {
-            margin: 2em 0 0 3em;
+        .stats-container {
+            width: 50%;
+        }
+        .dollar-bill-container {
         }
     }
+
+    .total-container {
+        display: flex;
+        align-items: center;
+
+        .stats-container {
+            width: 50%;
+        }
+    }
+
+    input[type="button"] {
+        text-align: center;
+        width: 100% ;
+        margin: auto;
+    }
+
 }
