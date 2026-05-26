@@ -132,34 +132,64 @@ input {
 
 .right-container {
     width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    justify-content: center;
-    .tip-container {
+
+    .outer-container {
+        width: 80%;
+        margin: 1em;
         display: flex;
-        align-items: center;
+        flex-direction: column;
 
-        .stats-container {
-            width: 50%;
+        .tip-amount-container {
+            display: flex;
+            justify-content: end;
+
+            .tip-headers {
+                width: 50%;
+
+
+                h4 {
+                    margin-bottom: unset;
+                }
+
+                h6 {
+                    margin-top: unset;
+                }
+            }
+
+            p {
+                text-align: end;
+   
+                flex-grow: 1;
+            }
         }
-        .dollar-bill-container {
+
+        .total-amount-container {
+            display: flex;
+            justify-content: end;
+
+            .total-headers {
+                width: 50%;
+
+                h4 {
+                    margin-bottom: unset;
+                }
+
+                h6 {
+                    margin-top: unset;
+                }
+            }
+
+            p {
+                text-align: end;
+    
+                flex-grow: 1;
+            }
         }
-    }
 
-    .total-container {
-        display: flex;
-        align-items: center;
-
-        .stats-container {
-            width: 50%;
+        input[type="button"] {
+            margin-top: 3em;
+            text-align: center;
         }
-    }
 
-    input[type="button"] {
-        text-align: center;
-        width: 100% ;
-        margin: auto;
     }
-
 }
