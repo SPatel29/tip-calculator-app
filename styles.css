@@ -123,13 +123,6 @@ input {
     }
 }
 
-/*
-
-    TODO: align items within right container to be center
-    of all text and button inputs
-
-*/
-
 .right-container {
     width: 50%;
 
@@ -139,35 +132,13 @@ input {
         display: flex;
         flex-direction: column;
 
-        .tip-amount-container {
-            display: flex;
-            justify-content: end;
-
-            .tip-headers {
-                width: 50%;
-
-
-                h4 {
-                    margin-bottom: unset;
-                }
-
-                h6 {
-                    margin-top: unset;
-                }
-            }
-
-            p {
-                text-align: end;
-   
-                flex-grow: 1;
-            }
-        }
-
+        .tip-amount-container,
         .total-amount-container {
             display: flex;
             justify-content: end;
+            align-items: center;
 
-            .total-headers {
+            .headers {
                 width: 50%;
 
                 h4 {
@@ -181,7 +152,6 @@ input {
 
             p {
                 text-align: end;
-    
                 flex-grow: 1;
             }
         }
