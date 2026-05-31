@@ -55,10 +55,23 @@ customTipTextInput.addEventListener('focus', () => {
 });
 
 const numberOfPeopleInput = document.getElementById('num-of-people');
-numberOfPeopleInput.addEventListener('click', () => {
-    // need to check if input is 0, then display
-    // Can't be zero above the text input
-    // also highlight the box red
+const numPeopleErrMsg = document.getElementById('num-people-error-msg');
+const numOfPeopleInput = document.getElementById('num-of-people');
+numberOfPeopleInput.addEventListener('input', () => {
+    const numberOfPeople = event.target.value;
+    console.log("value of input is: " + Number(numberOfPeople));
+    if (Number(numberOfPeople) < 1) {
+        numPeopleErrMsg.textContent = "Can't be less than 1";
+        numPeopleErrMsg.style.display = "block";
+        numOfPeopleInput.style.border = "2px solid red";
+    } else if (Number(numberOfPeople) >= 1) {
+        numPeopleErrMsg.style.display = "none";
+        numOfPeopleInput.style.border = "2px solid #3498db";
+    } else {
+        numPeopleErrMsg.textContent = "Must be a number";
+        numPeopleErrMsg.style.display = "block";
+        numOfPeopleInput.style.border = "2px solid red";
+    }
 });
 
 const resetButton = document.getElementById('reset-button');

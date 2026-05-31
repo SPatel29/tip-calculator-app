@@ -109,8 +109,13 @@ input {
             }
         }
 
-        .num-of-people-text {
-            margin-bottom: 0.3em;
+        .header-text {
+            display: flex;
+            justify-content: space-between;
+
+            #num-people-error-msg {
+                display: none;
+            }
         }
 
         .person-img {

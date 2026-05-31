@@ -52,12 +52,16 @@
             <input type="radio" id="tip-percentage-50" name="tip-percentage" value="50%" checked>
           </label>
           <label class="tip-value" for="custom-tip">
-            <input id="custom-tip" type="text" name="tip-percentage" placeholder="Custom">
+            <o>
+              <input id="custom-tip" type="text" name="tip-percentage" placeholder="Custom">
           </label>
         </form>
       </div>
       <div class="num-of-people-container">
-        <p class="num-of-people-text">Number of People</p>
+        <div class="header-text">
+          <p>Number of People</p>
+          <p id="num-people-error-msg"></p>
+        </div>
         <label class="num-of-people-label" for="num-of-people">
           <input type="text" id="num-of-people">
           <img class="person-img" src="/images/icon-person.svg">
