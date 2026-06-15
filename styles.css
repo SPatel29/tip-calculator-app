@@ -19,8 +19,9 @@ input {
     width: 50%;
     margin: 1em;
 
-    input[type="text"] {
+    #bill, #custom-tip {
         box-sizing: border-box;
+        width: 100%;
     }
 
     .input-container {
@@ -84,7 +85,6 @@ input {
             background: transparent;
             outline: none;
             text-align: inherit;
-            box-sizing: border-box;
             border: unset;
         }
 
@@ -107,6 +107,10 @@ input {
                 background-color: hsl(189, 47%, 97%);
                 border-radius: 0.2em;
             }
+        }
+
+        #num-of-people {
+            box-sizing: border-box;
         }
 
         .header-text {

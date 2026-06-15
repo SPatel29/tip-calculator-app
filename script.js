@@ -43,39 +43,84 @@ Example structure of JS file:
 
 */
 
+// parseFloat(input.value) || 0 if nonNumber then it defaults to 0
 
 
-const customTipTextInput = document.getElementById('custom-tip');
+/* 
 
-customTipTextInput.addEventListener('focus', () => {
-    const checkedRadio = document.querySelector('input[name="tip-percentage"]:checked');
-    if (checkedRadio) {
-        checkedRadio.checked = false;
+    How do I make it so tip and stuff is calculated
+    only when I have the values present and making sure
+    they are acceptable values
+    can I just save them as booleans? then just have them as flag?
+
+*/
+
+
+/*
+
+    1. Make an event listener on the main container
+       this event listener should listen on all inputs
+       making sure they are all filled out,
+       if all inputs are filled out then it should calculate
+       the tipAmonut and the total per person
+    
+    2. Make an event listener on each element
+       based on that do the appopriate logic 
+
+
+
+*/
+
+
+// main container listener
+// only see if all inputs are filled, then calculate
+
+// Add a dot (.) before the class name for querySelector
+
+
+const mainContainer = document.querySelector('.main-container');
+
+mainContainer.addEventListener('change', (event) => {
+    var valid = validateBill(); // && validateTip() && validateNumberOfPeople();
+    if (valid) {
+        console.log('Everything is valid! We can set text')
+        // set tip amount here
     }
 });
 
-const numberOfPeopleInput = document.getElementById('num-of-people');
-const numPeopleErrMsg = document.getElementById('num-people-error-msg');
-const numOfPeopleInput = document.getElementById('num-of-people');
-numberOfPeopleInput.addEventListener('input', () => {
-    const numberOfPeople = event.target.value;
-    console.log("value of input is: " + Number(numberOfPeople));
-    if (Number(numberOfPeople) < 1) {
-        numPeopleErrMsg.textContent = "Can't be less than 1";
-        numPeopleErrMsg.style.display = "block";
-        numOfPeopleInput.style.border = "2px solid red";
-    } else if (Number(numberOfPeople) >= 1) {
-        numPeopleErrMsg.style.display = "none";
-        numOfPeopleInput.style.border = "2px solid #3498db";
-    } else {
-        numPeopleErrMsg.textContent = "Must be a number";
-        numPeopleErrMsg.style.display = "block";
-        numOfPeopleInput.style.border = "2px solid red";
-    }
-});
 
-const resetButton = document.getElementById('reset-button');
-resetButton.addEventListener('click', () => {
-    // click should set all inputs to 0, and
-    // unclick radio buttons if clicked 
-});
+function validateBill() {
+    const billElement = document.getElementById('bill');
+    const billValue = billElement.value.trim();
+    if (billValue === "") {
+        console.log('can\'t have empty string. Try again')
+        return false
+    }
+    if (typeof billValue === 'string' && (!Number.isFinite(billValue) || billValue < 0)) {
+        console.log('value must be a positive numeric')
+        return false
+    }
+    return true
+}
+
+function validateNumOfPeople(){
+    const numOfPeopleElement = document.getElementById('num-of-people');
+    const elementValue = numOfPeopleElement.value.trim();
+    if (elementValue === "") {  
+        console.log('can\'t have empty string. Try again')
+        return false
+    }
+    if (typeof elementValue === 'string' && (!Number.isFinite(elementValue) || elementValue <= 0)) {
+        console.log('value must be a greater than 0')
+        return false
+    }
+    return true
+}
+
+function validateTip() {
+
+}
+
+function validateNumberOfPeople() {
+
+}
