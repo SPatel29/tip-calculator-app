@@ -81,11 +81,11 @@ Example structure of JS file:
 const mainContainer = document.querySelector('.main-container');
 
 mainContainer.addEventListener('change', (event) => {
-    var valid = validateBill(); // && validateTip() && validateNumberOfPeople();
-    if (valid) {
-        console.log('Everything is valid! We can set text')
-        // set tip amount here
-    }
+    // var valid = validateTip(); // && validateTip() && validateNumberOfPeople();
+    // if (valid) {
+    //     console.log('Everything is valid! We can set text')
+    //     // set tip amount here
+    // }
 });
 
 
@@ -103,10 +103,10 @@ function validateBill() {
     return true
 }
 
-function validateNumOfPeople(){
+function validateNumOfPeople() {
     const numOfPeopleElement = document.getElementById('num-of-people');
     const elementValue = numOfPeopleElement.value.trim();
-    if (elementValue === "") {  
+    if (elementValue === "") {
         console.log('can\'t have empty string. Try again')
         return false
     }
@@ -117,10 +117,31 @@ function validateNumOfPeople(){
     return true
 }
 
-function validateTip() {
 
-}
+/*
+    By capturing this single parent container, you unlock the ability to use Event Delegation. 
+    Instead of listening to each radio button individually, you listen to this one radioContainer wrapper. 
+    When any radio button inside it gets clicked, the click event "bubbles up" to this parent container, 
+    allowing you to catch it with just one event listener.
+*/
 
-function validateNumberOfPeople() {
+const tipContainer = document.querySelector('.tip-container');
 
-}
+tipContainer.addEventListener('input', function (event) {
+    const target = event.target;
+    const customTip = document.getElementById('custom-tip');
+    const radioButtons = document.getElementsByName('tip-percentage');
+    if (target.tagName !== 'INPUT') return;
+    if (target.type === 'radio' && event.target.checked) {
+        customTip.value = '';
+        console.log('radio button was clicked')
+    }
+    if (target.type === 'text') {
+        console.log('text input was clicked');
+        radioButtons.forEach(radio => {
+            if (radio.type === 'radio') {
+                radio.checked = false;
+            }
+        });
+    }
+});
