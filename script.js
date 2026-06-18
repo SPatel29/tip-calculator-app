@@ -131,6 +131,7 @@ tipContainer.addEventListener('input', function (event) {
     const target = event.target;
     const customTip = document.getElementById('custom-tip');
     const radioButtons = document.getElementsByName('tip-percentage');
+    const customTipParent = customTip.parentElement;
     if (target.tagName !== 'INPUT') return;
     if (target.type === 'radio' && event.target.checked) {
         customTip.value = '';
@@ -143,5 +144,18 @@ tipContainer.addEventListener('input', function (event) {
                 radio.checked = false;
             }
         });
+        if (!isNumeric(customTip.value)) {
+            customTipParent.style.borderColor = "#FF0000";
+        } else {
+            customTipParent.style.borderColor = "";
+        }
     }
 });
+
+function isNumeric(value) {
+    if (value.trim() === '') {
+        return false;
+    }
+    const numeric = Number(value);
+    return !isNaN(numeric) && isFinite(numeric) && numeric >= 0
+}
