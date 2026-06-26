@@ -89,19 +89,23 @@ mainContainer.addEventListener('change', (event) => {
 });
 
 
-function validateBill() {
-    const billElement = document.getElementById('bill');
-    const billValue = billElement.value.trim();
+const billInput = document.getElementById('bill');
+    billInput.addEventListener('input', function(event){
+    const billValue = billInput.value.trim();
+    const billParentElement = billInput.parentElement;
+    console.log('parent eelemnt of bill is: ', billParentElement);
+    const numericValue = parseFloat(billValue);
     if (billValue === "") {
-        console.log('can\'t have empty string. Try again')
-        return false
+        billInput.style.borderColor = "#FF0000";
+        console.log('can\'t have empty string. Try again');
     }
-    if (typeof billValue === 'string' && (!Number.isFinite(billValue) || billValue < 0)) {
-        console.log('value must be a positive numeric')
-        return false
+    else if ((!Number.isFinite(numericValue) || numericValue < 0)) {
+        billInput.style.borderColor = "#FF0000";
+        console.log('value must be a positive numeric');
+    } else {
+        billInput.style.borderColor = "";
     }
-    return true
-}
+}); 
 
 function validateNumOfPeople() {
     const numOfPeopleElement = document.getElementById('num-of-people');
@@ -116,14 +120,6 @@ function validateNumOfPeople() {
     }
     return true
 }
-
-
-/*
-    By capturing this single parent container, you unlock the ability to use Event Delegation. 
-    Instead of listening to each radio button individually, you listen to this one radioContainer wrapper. 
-    When any radio button inside it gets clicked, the click event "bubbles up" to this parent container, 
-    allowing you to catch it with just one event listener.
-*/
 
 const tipContainer = document.querySelector('.tip-container');
 
