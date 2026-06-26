@@ -89,11 +89,26 @@ mainContainer.addEventListener('change', (event) => {
 });
 
 
+const numOfPeopleInput = document.getElementById('num-of-people');
+    numOfPeopleInput.addEventListener('input', function(event){
+    const numOfPeopleValue = numOfPeopleInput.value.trim();
+    const numericValue = parseFloat(numOfPeopleValue);
+    if (numOfPeopleValue === "") {
+        numOfPeopleInput.style.borderColor = "#FF0000";
+        console.log('can\'t have empty string. Try again');
+    }
+    else if ((!Number.isFinite(numericValue) || numericValue <= 0)) {
+        numOfPeopleInput.style.borderColor = "#FF0000";
+        console.log('value must be a positive numeric');
+    } else {
+        numOfPeopleInput.style.borderColor = "";
+    }
+}); 
+
+
 const billInput = document.getElementById('bill');
     billInput.addEventListener('input', function(event){
     const billValue = billInput.value.trim();
-    const billParentElement = billInput.parentElement;
-    console.log('parent eelemnt of bill is: ', billParentElement);
     const numericValue = parseFloat(billValue);
     if (billValue === "") {
         billInput.style.borderColor = "#FF0000";
@@ -131,6 +146,7 @@ tipContainer.addEventListener('input', function (event) {
     if (target.tagName !== 'INPUT') return;
     if (target.type === 'radio' && event.target.checked) {
         customTip.value = '';
+        customTipParent.style.borderColor = "";
         console.log('radio button was clicked')
     }
     if (target.type === 'text') {
