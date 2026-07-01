@@ -90,62 +90,84 @@ mainContainer.addEventListener('change', (event) => {
 
 
 const numOfPeopleInput = document.getElementById('num-of-people');
-    numOfPeopleInput.addEventListener('input', function(event){
+numOfPeopleInput.addEventListener('input', function (event) {
     const numOfPeopleValue = numOfPeopleInput.value.trim();
     const numericValue = parseFloat(numOfPeopleValue);
+    const numPeopleErrorMsg = document.getElementById('num-people-error-msg')
     if (numOfPeopleValue === "") {
         numOfPeopleInput.style.borderColor = "#FF0000";
-        console.log('can\'t have empty string. Try again');
+        console.log('can\'t have empty string. Try again. IN NUM OF PEOPLE');
+        numPeopleErrorMsg.textContent = "Can't have Empty String";
+        numPeopleErrorMsg.style.display = 'block';
     }
     else if ((!Number.isFinite(numericValue) || numericValue <= 0)) {
         numOfPeopleInput.style.borderColor = "#FF0000";
-        console.log('value must be a positive numeric');
+        numPeopleErrorMsg.style.display = 'block';
+        numPeopleErrorMsg.textContent = "Value Must Be Positive Numeric";
+        console.log('value must be a positive numeric. IN. NUM OF PEOPLE');
     } else {
         numOfPeopleInput.style.borderColor = "";
+        numPeopleErrorMsg.textContent = "";
+        numPeopleErrorMsg.style.display = 'none';
     }
-}); 
+});
 
 
 const billInput = document.getElementById('bill');
-    billInput.addEventListener('input', function(event){
+const billErrorMsg = document.getElementById('bill-error-msg');
+billInput.addEventListener('input', function (event) {
     const billValue = billInput.value.trim();
     const numericValue = parseFloat(billValue);
     if (billValue === "") {
         billInput.style.borderColor = "#FF0000";
+        billErrorMsg.textContent = "Bill can't be an empty string"
+        billErrorMsg.style.display = "block";
         console.log('can\'t have empty string. Try again');
     }
     else if ((!Number.isFinite(numericValue) || numericValue < 0)) {
         billInput.style.borderColor = "#FF0000";
+        billErrorMsg.textContent = "Bill must be a positive numeric"
         console.log('value must be a positive numeric');
+        billErrorMsg.style.display = "block";
     } else {
         billInput.style.borderColor = "";
+        billErrorMsg.textContent = "";
+        billErrorMsg.style.display = "none";
     }
-}); 
+});
 
 function validateNumOfPeople() {
     const numOfPeopleElement = document.getElementById('num-of-people');
     const elementValue = numOfPeopleElement.value.trim();
+    const numOfPeopleErrorMsg = document.getElementById('num-of-people-error-msg')
     if (elementValue === "") {
         console.log('can\'t have empty string. Try again')
+        numOfPeopleErrorMsg.style.display = "block";
         return false
     }
     if (typeof elementValue === 'string' && (!Number.isFinite(elementValue) || elementValue <= 0)) {
         console.log('value must be a greater than 0')
+        numOfPeopleErrorMsg.style.display = "block";
         return false
     }
     return true
 }
 
 const tipContainer = document.querySelector('.tip-container');
-
+const tipErrorMsg = document.getElementById('tip-selection-error-msg');
 tipContainer.addEventListener('input', function (event) {
     const target = event.target;
     const customTip = document.getElementById('custom-tip');
     const radioButtons = document.getElementsByName('tip-percentage');
     const customTipParent = customTip.parentElement;
+    const numericTipValue = parseFloat(customTip.value);
+    console.log('custom tip is: ', customTip)
+    console.log('numeric value of custom tip is: ', numericTipValue);
     if (target.tagName !== 'INPUT') return;
     if (target.type === 'radio' && event.target.checked) {
         customTip.value = '';
+        tipErrorMsg.textContent = ""
+        tipErrorMsg.style.display = "none"
         customTipParent.style.borderColor = "";
         console.log('radio button was clicked')
     }
@@ -156,9 +178,17 @@ tipContainer.addEventListener('input', function (event) {
                 radio.checked = false;
             }
         });
-        if (!isNumeric(customTip.value)) {
+        if (customTip.value == "") {
+            tipErrorMsg.textContent = "Tip must be numeric";
+            tipErrorMsg.style.display = "block";
+            customTipParent.style.borderColor = "#FF0000";
+        } else if ((!Number.isFinite(numericTipValue) || numericTipValue < 0)) {
+            tipErrorMsg.textContent = "Tip must be positive";
+            tipErrorMsg.style.display = "block";
             customTipParent.style.borderColor = "#FF0000";
         } else {
+            tipErrorMsg.textContent = ""
+            tipErrorMsg.style.display = "none"
             customTipParent.style.borderColor = "";
         }
     }
@@ -169,5 +199,5 @@ function isNumeric(value) {
         return false;
     }
     const numeric = Number(value);
-    return !isNaN(numeric) && isFinite(numeric) && numeric >= 0
+    return !isNaN(numeric) && isFinite(numeric)
 }

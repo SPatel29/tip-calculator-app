@@ -27,13 +27,20 @@
   <div class="main-container">
     <div class="left-container">
       <div class="input-container">
+        <div class="header-text">
+          <p>Bill</p>
+          <p id="bill-error-msg">Error!</p>
+        </div>
         <label class="dollar-sign" for="bill">
           <input type="text" id="bill" name="bill">
         </label>
         <img class="dollar-sign-img" src="/images/icon-dollar.svg">
       </div>
-      <p class="tip-selection-label">Select Tip %</p>
       <div class="tip-container">
+        <div class="header-text">
+          <p class="tip-selection-label">Select Tip %</p>
+          <p id="tip-selection-error-msg">test</p>
+        </div>
         <form>
           <label class="tip-value" for="tip-percentage-5">
             <span>5%</span>
@@ -52,7 +59,7 @@
             <input type="radio" id="tip-percentage-50" name="tip-percentage" value="50%">
           </label>
           <label class="tip-value" for="custom-tip">
-              <input id="custom-tip" type="text" name="tip-percentage" placeholder="Custom">
+            <input id="custom-tip" type="text" name="tip-percentage" placeholder="Custom">
           </label>
         </form>
       </div>
