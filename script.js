@@ -139,11 +139,23 @@ function calculateTotal() {
 function checkIfRadioButtonsHaveValue() {
     const selectedRadio = document.querySelector('input[name="tip-percentage"]:checked');
     const value = selectedRadio ? parseFloat(selectedRadio.value) : NaN;
-
     return value;
 }
 
 const resetButton = document.getElementById('reset-button');
-resetButton.addEventListener('click', function(evenet) {
-    
+const tipCounterText = document.querySelector('.tip-counter');
+const totalCounterText = document.querySelector('.total-counter');
+
+resetButton.addEventListener('click', () => {
+    console.log('resetting everything!')
+    tipCounterText.textContent = "$0.00";
+    totalCounterText.textContent = "$0.00";
+    billInput.value = "";
+    numOfPeopleInput.value = "";
+    if (customTip.value == "" && checkIfRadioButtonsHaveValue() != NaN) {
+        const selectedRadio = document.querySelector('input[name="tip-percentage"]:checked');
+        selectedRadio.checked = false;
+    } else {
+        customTip.value = "";
+    }
 });
